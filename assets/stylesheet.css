@@ -31,10 +31,51 @@ header{
 
 }
 
-#start_button{
+button{
     background-color: blueviolet;
     color: white;
     border-color: blueviolet;
     border-radius: 5%;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 9px 9px;
+    text-align: center;
+    box-shadow: 2px 2px black;
+    cursor: pointer;
+    border-color: blueviolet;
+    margin-left: 10px;
+
+}
+
+button:hover{
+    background-color: rgb(172, 1, 172);
+    border-color:rgb(172, 1, 172);
+
+}
+
+button:active{
+    background-color: rgb(172, 1, 172);
+    box-shadow: 0 5px rgb(172, 1, 172);;
+    transform: translateY(4px);
+    border-color:rgb(172, 1, 172);
+
+}
+
+#answer_1{
+    display: none;
+}
+
+#answer_2{
+    display: none;
+
+}
+
+#answer_3{
+    display: none;
+
+}
+
+#answer_4{
+    display: none;
 
 }
