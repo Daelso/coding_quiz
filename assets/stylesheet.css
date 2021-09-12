@@ -1,0 +1,40 @@
+body{
+    color: blueviolet;
+    background-color: rgb(31, 34, 34);
+    font-weight: bold;
+}
+
+#ul_top_hypers li{
+    display: inline;
+    font-family: monospace;
+    font-size: 25px;
+    
+}
+
+header{
+    text-align: center;
+    font-family: monospace;
+    font-size: 30px;
+
+}
+
+#time_remaining{
+    float: right;
+    margin-right: 30px;
+}
+
+
+.questions{
+    text-align: center;
+    font-size: 25px;
+    
+
+}
+
+#start_button{
+    background-color: blueviolet;
+    color: white;
+    border-color: blueviolet;
+    border-radius: 5%;
+
+}
