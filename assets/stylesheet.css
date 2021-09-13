@@ -11,6 +11,14 @@ body{
     
 }
 
+a{
+    text-align: center;
+    font-family: monospace;
+    font-size: 25px;
+    color: blueviolet;
+
+}
+
 header{
     text-align: center;
     font-family: monospace;
@@ -77,5 +85,20 @@ button:active{
 
 #answer_4{
     display: none;
+
+}
+
+#submit_initials{
+    display: none;
+
+}
+
+#initials{
+    display: none;
+
+}
+
+#text_below{
+    font-size: 10px;
 
 }

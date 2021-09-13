@@ -1,11 +1,20 @@
 var time_remaining = 120
 var question_num = 0 //make id tie to html
+var highscore = {
+    score: [],
+    initials: [],
+}
 var score = 0
+var inits = document.querySelector("#initials")
+var submit_initials = document.querySelector("#submit_initials")
 var start_button = document.querySelector("#start_button")
 var answer_1 = document.querySelector("#answer_1")
 var answer_2 = document.querySelector("#answer_2")
 var answer_3 = document.querySelector("#answer_3")
 var answer_4 = document.querySelector("#answer_4")
+var text_below = document.querySelector("#text_below")
+var score1 = document.querySelector("#score1")
+var score2 =document.querySelector("#score2")
 
 var questions = document.querySelector(".questions")
 
@@ -43,6 +52,7 @@ answer_1.addEventListener("click", function() {
             document.getElementById("answer_2").innerHTML = "2. git get "
             document.getElementById("answer_3").innerHTML = "3. git update "
             document.getElementById("answer_4").innerHTML = "4. git add "
+            document.getElementById("text_below").innerHTML = "Wrong! "
             time_remaining -=5
             question_num++
         break;
@@ -55,6 +65,7 @@ answer_1.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Rust "
             score += 5
             question_num++
+            document.getElementById("text_below").innerHTML = "Correct!"
         break;
 
         case 3:
@@ -65,9 +76,11 @@ answer_1.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Looping "
             score +=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Correct!"
         break;
         
         case 4:
+            document.getElementById("text_below").innerHTML = "Wrong! "
             question_num++
             game_over_man()
             console.log(question_num)
@@ -85,6 +98,7 @@ answer_2.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. git add "
             score += 5
             question_num++
+            document.getElementById("text_below").innerHTML = "Correct!"
         break;
 
         case 2:
@@ -95,6 +109,7 @@ answer_2.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Rust "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
 
         case 3:
@@ -104,9 +119,12 @@ answer_2.addEventListener("click", function() {
             document.getElementById("answer_3").innerHTML = "3. Running "
             document.getElementById("answer_4").innerHTML = "4. Looping "
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
+
         break;
         
         case 4:
+            document.getElementById("text_below").innerHTML = "Correct!"
             score +=5
             question_num++
             game_over_man()
@@ -126,6 +144,7 @@ answer_3.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. git add "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
 
         case 2:
@@ -136,6 +155,7 @@ answer_3.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Rust "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
 
         case 3:
@@ -146,9 +166,11 @@ answer_3.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Looping "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
         
         case 4:
+            document.getElementById("text_below").innerHTML = "Wrong!"
             question_num++
             game_over_man()
             console.log(question_num)
@@ -166,6 +188,7 @@ answer_4.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. git add "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
 
         case 2:
@@ -176,6 +199,7 @@ answer_4.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Rust "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
 
         case 3:
@@ -186,9 +210,11 @@ answer_4.addEventListener("click", function() {
             document.getElementById("answer_4").innerHTML = "4. Looping "
             time_remaining -=5
             question_num++
+            document.getElementById("text_below").innerHTML = "Wrong!"
         break;
         
         case 4:
+            document.getElementById("text_below").innerHTML = "Wrong!"
             question_num++
             game_over_man()
             console.log(question_num)
@@ -220,20 +246,40 @@ function game_over_man() {
 
     if (time_remaining >= 1) {
         clearInterval(timer)
-        questions.children[0].textContent = "Well done!  Your final score is: " + score
+        questions.children[0].textContent = "Well done!  Your final score is: " + score + "!" + " Input your initials below to log your score!"
         answer_1.setAttribute("style", "display: none")
         answer_2.setAttribute("style", "display: none")
         answer_3.setAttribute("style", "display: none")
         answer_4.setAttribute("style", "display: none")
+        inits.setAttribute("style", "display: inline-block")
+        submit_initials.setAttribute("style", "display: inline-block")
         }
     else {
-        questions.children[0].textContent = "Times up! Your final score is: " + score
+        questions.children[0].textContent = "Times up! Your final score is: " + score + "!" + " Input your initials below to log your score!"
         answer_1.setAttribute("style", "display: none")
         answer_2.setAttribute("style", "display: none")
         answer_3.setAttribute("style", "display: none")
         answer_4.setAttribute("style", "display: none")
+        inits.setAttribute("style", "display: inline-block")
+        submit_initials.setAttribute("style", "display: inline-block")
         };
 
     
 }
+
+
+submit_initials.addEventListener("click", function() {
+    highscore.initials.push(inits.value)
+    highscore.score.push(score)
+    localStorage.setItem("highScore", JSON.stringify(highscore))
+    storedScores = JSON.parse(localStorage.getItem("highScore"));
+    var storedScores = JSON.parse(localStorage.getItem("highScore"));
+
+   
+    console.log(storedScores)
+    storedScores.score.sort()
+    score1.textContent = storedScores.score[0]
+    score2.textContent =storedScores.score[1]
+
+});
 
