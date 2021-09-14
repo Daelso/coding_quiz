@@ -102,3 +102,8 @@ button:active{
     font-size: 10px;
 
 }
+
+#restart_button{
+    display: none;
+
+}

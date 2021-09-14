@@ -7,6 +7,7 @@ var highscore = {
 var score = 0
 var inits = document.querySelector("#initials")
 var submit_initials = document.querySelector("#submit_initials")
+var restart_button = document.querySelector("#restart_button")
 var start_button = document.querySelector("#start_button")
 var answer_1 = document.querySelector("#answer_1")
 var answer_2 = document.querySelector("#answer_2")
@@ -253,6 +254,7 @@ function game_over_man() {
         answer_4.setAttribute("style", "display: none")
         inits.setAttribute("style", "display: inline-block")
         submit_initials.setAttribute("style", "display: inline-block")
+        restart_button.setAttribute("style", "display: inline-block")
         }
     else {
         questions.children[0].textContent = "Times up! Your final score is: " + score + "!" + " Input your initials below to log your score!"
@@ -262,6 +264,7 @@ function game_over_man() {
         answer_4.setAttribute("style", "display: none")
         inits.setAttribute("style", "display: inline-block")
         submit_initials.setAttribute("style", "display: inline-block")
+        restart_button.setAttribute("style", "display: inline-block")
         };
 
     
@@ -286,5 +289,12 @@ function init() {
 
 }
 
+
+restart_button.addEventListener("click", function() {
+    location.reload()
+
+
+
+})
 
 init()
