@@ -1,4 +1,4 @@
-# 03 JavaScript: Password Generator
+# 04 JavaScript: Coding Quiz
 
 ## Description:
 This homework was to create a short coding quiz that would store scores with initials.
