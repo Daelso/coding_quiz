@@ -13,8 +13,8 @@ var answer_2 = document.querySelector("#answer_2")
 var answer_3 = document.querySelector("#answer_3")
 var answer_4 = document.querySelector("#answer_4")
 var text_below = document.querySelector("#text_below")
-var score1 = document.querySelector("#score1")
-var score2 =document.querySelector("#score2")
+
+
 
 var questions = document.querySelector(".questions")
 
@@ -269,17 +269,22 @@ function game_over_man() {
 
 
 submit_initials.addEventListener("click", function() {
-    highscore.initials.push(inits.value)
-    highscore.score.push(score)
+    document.getElementById("text_below").innerHTML = "Submitted!"
+    highscore.score.push(inits.value + "-" + score + " points")
     localStorage.setItem("highScore", JSON.stringify(highscore))
-    storedScores = JSON.parse(localStorage.getItem("highScore"));
-    var storedScores = JSON.parse(localStorage.getItem("highScore"));
 
+    var storedScores = JSON.parse(localStorage.getItem("highScore"))
    
     console.log(storedScores)
-    storedScores.score.sort()
-    score1.textContent = storedScores.score[0]
-    score2.textContent =storedScores.score[1]
-
 });
 
+function init() {
+    var testing = JSON.parse(localStorage.getItem("highScore"));
+    if (testing !== null) {
+        highscore = testing;
+      }
+
+}
+
+
+init()
